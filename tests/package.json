@@ -1,0 +1,12 @@
+
+{
+  "name": "playwright-102-assignment",
+  "version": "1.0.0",
+  "description": "Playwright certification assignment",
+  "scripts": {
+    "test": "npx playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0"
+  }
+}
