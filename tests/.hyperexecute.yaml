@@ -1,0 +1,40 @@
+
+version: "0.2"
+
+runson: linux
+
+autosplit: true
+
+concurrency: 2
+
+retryOnFailure: true
+
+maxRetries: 1
+
+pre:
+  - npm install
+
+cacheKey: '{{ checksum "package-lock.json" }}'
+
+cache:
+  - ~/.npm
+
+env:
+  NODE_ENV: test
+
+  TEST_MESSAGE: Welcome to TestMu AI
+
+  TEST_EMAIL: testuser@example.com
+
+  TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
+
+mergeArtifacts: true
+
+uploadArtefacts:
+  - name: playwright-report
+    path: playwright-report/
+
+  - name: test-results
+    path: test-results/
+
+testRunnerCommand: npx playwright test
